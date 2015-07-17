@@ -12,14 +12,16 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'guns/vim-clojure-static'
-NeoBundle 'tpope/vim-leiningen'
 NeoBundle 'tpope/vim-fireplace'
+NeoBundle 'tpope/vim-leiningen'
+NeoBundle 'tpope/vim-classpath'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vim-scripts/AutoComplPop'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'vim-scripts/aftersyntaxc.vim'
+NeoBundle 'raichoo/haskell-vim'
 call neobundle#end()
 
 filetype plugin indent on
@@ -54,11 +56,14 @@ let g:airline_theme="wombat"
 let g:airline#extensions#tabline#enabled=1
 set laststatus=2
 
-colo jelleybeans
-hi MatchParen ctermbg=none ctermfg=red
+set background=dark
+colo wombat256
+hi Normal ctermbg=234
 hi Search cterm=none ctermbg=yellow ctermfg=black
 hi IncSearch cterm=none ctermbg=yellow ctermfg=black
-hi Normal ctermfg=188 ctermbg=none guifg=#e8e8d3 guifg=#151515
-hi NonText ctermbg=none
+hi Special ctermfg=10
+hi CursorLine ctermbg=235
 hi LineNr ctermbg=none
-
+hi MatchParen ctermbg=none ctermfg=red
+hi Error ctermbg=none ctermfg=10 term=none
+hi VertSplit ctermbg=none
