@@ -9,19 +9,30 @@ if has('vim_starting')
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'Valloric/YouCompleteMe'
+NeoBundle 'ctol/vim-cpp-enhanced-highlight'
 NeoBundle 'tpope/vim-fireplace'
 NeoBundle 'tpope/vim-leiningen'
 NeoBundle 'tpope/vim-classpath'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'vim-scripts/AutoComplPop'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'vim-scripts/aftersyntaxc.vim'
 NeoBundle 'raichoo/haskell-vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'tikhomirov/vim-glsl'
+NeoBundle 'vim-cpp-enhanced-highlight'
 call neobundle#end()
 
 filetype plugin indent on
@@ -48,7 +59,7 @@ map J 10j
 map K 10k
 map <leader>J :join<cr>
 map <tab> %
-nnoremap <s-h> :bprevious!<esc>
+nnoremap <s-h> :bprevious!<esc> 
 nnoremap <s-l> :bnext!<esc>
 inoremap {<cr> {<cr>}<C-o>O
 

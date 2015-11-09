@@ -132,14 +132,45 @@ gaps inner 20
 hide_edge_borders both
 new_window pixel 1
 
+# Some simple personal preferences
+hide_edge_borders both
+new_window pixel 1
+set $bg #1D1A18
+set $fg #9f9f9f
+set $hi #efef8f
+set $ac #a0afa0
+set $tx #040404
+set $ia #8f8f8f
+set $be #8faf9f
+set $yw #ccdc90
+set $gn #88b090
+set $rd #e89393
+set $id #1D1A18
+set $ce #525252
+# set some nice colors  border  background  text    indicator
+client.focused          $id     $ce         $tx     $ce
+client.unfocused        $bg     $bg         $ia     $bg
+client.focused_inactive $bg     $bg         $ac     $bg
+client.urgent           $rd     $rd         $tx     $rd
+
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         status_command i3status
+        colors {
+            statusline #cebea5
+            background #191919
+            inactive_workspace #191919 #191919 #44979f
+            focused_workspace #191919 #191919 #cebea5
+            active_workspace #191919 #191919 #cebea5
+        }
 }
 
-exec xfce4-power-manager
-exec compton
-exec feh --bg-fill ~/Images/sandman.jpg
+#exec xfce4-power-manager
+#exec compton
+exec feh --bg-fill ~/Images/swahili.png
+exec touchegg
+
+for_window [title="^opengl$"] floating enable
